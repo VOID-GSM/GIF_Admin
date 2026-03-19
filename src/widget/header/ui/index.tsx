@@ -11,9 +11,9 @@ export default function Header() {
   // 주소가 아직 정해지지 않아 비워 둠
   const menuList = [
     { title: "프로젝트 확인", href: "/"},
-    { title: "양식 생성", href: ""},
-    { title: "제출 확인", href: ""},
-    { title: "점수 수합 확인", href: ""},
+    { title: "양식 생성", href: "#"},
+    { title: "제출 확인", href: "#"},
+    { title: "점수 수합 확인", href: "#"},
   ]
   return (
     <header className="h-20 w-full flex justify-center items-center border-b border-gray-70 bg-white">
