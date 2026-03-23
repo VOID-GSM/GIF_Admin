@@ -1,33 +1,42 @@
 "use client";
 
+import { useMemo } from "react";
 import Link from "next/link";
 import Logo from "@/src/shared/asset/img/gif_logo.png";
 import Image from "next/image";
 import { HeaderMenu } from "./headerMenu";
 import { usePathname } from "next/navigation";
+import { ADMIN_MENU, MASTER_MENU } from "../model/menuData";
 
-export default function Header() {
+interface HeaderProps {
+  role?: "ADMIN" | "MASTER";
+}
+
+export default function Header({ role = "ADMIN" }: HeaderProps) { // AMDIN 임시로 지정
   const pathname = usePathname();
-  // 주소가 아직 정해지지 않아 비워 둠
-  const menuList = [
-    { title: "프로젝트 확인", href: "/"},
-    { title: "양식 생성", href: "#"},
-    { title: "제출 확인", href: "#"},
-    { title: "점수 수합 확인", href: "#"},
-  ]
+  const isMaster = role === "MASTER";
+  const menuList = isMaster ? MASTER_MENU : ADMIN_MENU;
+  const gapClass = isMaster ? "gap-6" : "gap-30";
+
+  const isEventDay = useMemo(() => {
+    const now = new Date();
+    return now.getMonth() + 1 === 12 && [28, 29].includes(now.getDate());
+  }, []);
+
   return (
     <header className="h-20 w-full flex justify-center items-center border-b border-gray-70 bg-white">
       <Link href="/">
         <Image src={Logo} alt="홈으로 이동" width={61} height={56} priority />
       </Link>
 
-      <div className="flex gap-6 ml-[70px]">
+      <div className={`flex ${gapClass} ml-[70px]`}>
         {menuList.map((menu) => (
           <HeaderMenu 
-            key={menu.title} 
+            key={menu.href} 
             title={menu.title}
             isActive={pathname === menu.href}
             href={menu.href}
+            isEventDay={isEventDay}
           />
         ))}
       </div>
