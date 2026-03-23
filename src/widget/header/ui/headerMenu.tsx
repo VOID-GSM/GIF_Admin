@@ -5,13 +5,31 @@ interface HeaderMenuProps {
   title: string;
   isActive: boolean;
   href: string;
+  isEventDay: boolean;
 }
 
-export function HeaderMenu({ title, isActive, href }: HeaderMenuProps) {
+export function HeaderMenu({ title, isActive, href, isEventDay }: HeaderMenuProps) {
+  const isScorePage = href.includes("score") || href.includes("rank");
+  const isLocked = isScorePage && !isEventDay;
+
+  const baseStyle = "text-[20px] font-medium transition-colors";
+  if (isLocked) {
+    return (
+      <span
+        className={`${baseStyle} text-gray-70 cursor-not-allowed`}
+        title="아이디어 페스티벌 당일 날 열립니다."
+      >
+        {title}
+      </span>
+    );
+  }
   return (
     <Link 
       href={href}
-      className={`text-[20px] font-medium ${isActive ? "text-main" : "text-black group-hover:text-main"}`}
+      className={`${baseStyle} ${
+        isActive ? "text-main" : "text-black hover:text-main"
+      }`}
+      aria-current={isActive ? "page" : undefined}
     >
       {title}
     </Link>
