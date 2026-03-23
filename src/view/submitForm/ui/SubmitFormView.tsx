@@ -5,9 +5,10 @@ import { Grade } from '@/src/features/DateFilter/model/temp';
 import GradeButton from '@/src/shared/ui/button/GradeButton';
 import DateFilter from '@/src/features/DateFilter/ui/DateFilter';
 
+const SUPPORTED_GRADES = [1, 2] as const;
+
 export default function SubmitForm() {
   const [selectedGrade, setSelectedGrade] = useState<Grade>(1);
-  const SUPPORTED_GRADES = [1, 2] as const;
 
   return (
     <div className="flex flex-col gap-[50px] items-center mt-20">

@@ -5,7 +5,7 @@ export interface Submission {
   title: string;
   dateStart: string;
   dateEnd: string;
-  grade: 1 | 2;
+  grade: Grade;
 }
 
 export const MOCK_SUBMISSION: Submission[] = [
