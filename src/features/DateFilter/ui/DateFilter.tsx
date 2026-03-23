@@ -31,7 +31,7 @@ export default function DateFilter({ selectedGrade }: DateFilterProps) {
         }
         return b.endTime - a.endTime;
       });
-  }, [selectedGrade, MOCK_SUBMISSION]);
+  }, [selectedGrade]);
 
   return (
     <div>
