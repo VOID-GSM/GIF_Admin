@@ -1,5 +1,7 @@
+import { Grade } from '@/src/features/DateFilter/model/temp';
+
 interface GradeButtonProps {
-  value: number;
+  value: Grade;
   isSelected: boolean;
   onClick: () => void;
 }

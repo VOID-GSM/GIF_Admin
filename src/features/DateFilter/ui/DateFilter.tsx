@@ -3,9 +3,10 @@
 import { useMemo } from 'react';
 import SubmissionCard from '@/src/shared/ui/card/SubmissionCard';
 import { MOCK_SUBMISSION } from '../model/temp';
+import { Grade } from '../model/temp';
 
 interface DateFilterProps {
-  selectedGrade: number;
+  selectedGrade: Grade;
 }
 
 export default function DateFilter({ selectedGrade }: DateFilterProps) {
@@ -34,18 +35,17 @@ export default function DateFilter({ selectedGrade }: DateFilterProps) {
   }, [selectedGrade]);
 
   return (
-    <div>
-      <div className="flex flex-col gap-[30px]">
-        {processed.map((item) => (
-          <SubmissionCard
-            key={item.id}
-            title={item.title}
-            dateStart={item.dateStart}
-            dateEnd={item.dateEnd}
-            isExpired={item.isExpired}
-          />
-        ))}
-      </div>
+    <div className="flex flex-col gap-[30px]">
+      {processed.map((item) => (
+        <SubmissionCard
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          dateStart={item.dateStart}
+          dateEnd={item.dateEnd}
+          isExpired={item.isExpired}
+        />
+      ))}
     </div>
   );
 }
