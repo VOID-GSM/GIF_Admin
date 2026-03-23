@@ -6,11 +6,11 @@ interface HeaderMenuProps {
   isActive: boolean;
   href: string;
   isEventDay: boolean;
+  isLockable?: boolean;
 }
 
-export function HeaderMenu({ title, isActive, href, isEventDay }: HeaderMenuProps) {
-  const isScorePage = href.includes("score") || href.includes("rank");
-  const isLocked = isScorePage && !isEventDay;
+export function HeaderMenu({ title, isActive, href, isEventDay, isLockable = false }: HeaderMenuProps) {
+  const isLocked = isLockable && !isEventDay;
 
   const baseStyle = "text-[20px] font-medium transition-colors";
   if (isLocked) {
