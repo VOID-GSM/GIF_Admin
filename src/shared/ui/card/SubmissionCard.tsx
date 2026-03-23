@@ -2,21 +2,19 @@
 
 import Link from 'next/link';
 
-interface SubmitionCardProps {
+interface SubmissionCardProps {
   title: string;
   dateStart: string;
   dateEnd: string;
-  grade: 1 | 2;
   isExpired: boolean;
 }
 
-export default function SubmitionCard({
+export default function SubmissionCard({
   title,
   dateStart,
   dateEnd,
-  grade,
   isExpired,
-}: SubmitionCardProps) {
+}: SubmissionCardProps) {
   return (
     <Link href="/" className="block">
       <div
