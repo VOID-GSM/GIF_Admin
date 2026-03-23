@@ -1,13 +1,16 @@
 interface GradeButtonProps {
   value: number;
+  isSeleted: boolean;
+  onClick: () => void;
 }
 
-export default function GradeButton({ value }: GradeButtonProps) {
+export default function GradeButton({ value, isSeleted, onClick }: GradeButtonProps) {
   return (
     <button
       type="button"
+      onClick={onClick}
       className={`w-[150px] h-[35px] border rounded-lg text-black cursor-pointer
-        ${value === 1 ? 'border-[#27D79C] bg-[#D0F2E4]' : 'border-[#A7A7A7] bg-[#EDEDED]'}`}
+        ${isSeleted ? 'border-[#27D79C] bg-[#D0F2E4]' : 'border-[#A7A7A7] bg-[#EDEDED]'}`}
     >
       {value}학년
     </button>
