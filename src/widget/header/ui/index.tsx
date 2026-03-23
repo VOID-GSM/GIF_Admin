@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Logo from "@/src/shared/asset/img/gif_logo.png";
 import Image from "next/image";
@@ -18,9 +18,18 @@ export default function Header({ role = "ADMIN" }: HeaderProps) { // AMDIN ìž„ì‹
   const menuList = isMaster ? MASTER_MENU : ADMIN_MENU;
   const gapClass = isMaster ? "gap-6" : "gap-30";
 
-  const isEventDay = useMemo(() => {
+  const checkIsEventDay = () => {
     const now = new Date();
     return now.getMonth() + 1 === 12 && [28, 29].includes(now.getDate());
+  };
+
+  const [isEventDay, setIsEventDay] = useState(checkIsEventDay);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsEventDay(checkIsEventDay());
+    }, 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
