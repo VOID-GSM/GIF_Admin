@@ -18,11 +18,11 @@ export default function SubmissionCard({
   return (
     <Link href={`/submissions/${id}`} className="block">
       <div
-        className={`flex w-[550px] h-20 border border-[#BABABA] rounded-lg justify-between items-center pl-[25px] pr-[42px]
-      ${isExpired ? 'text-[#939393] bg-[#EDEDED]' : 'text-black bg-white'}`}
+        className={`flex w-[550px] h-20 border border-gray-70 rounded-lg justify-between items-center pl-[25px] pr-[42px]
+      ${isExpired ? 'text-gray-50 bg-high-emphasis' : 'text-black bg-white'}`}
       >
         <div className="flex text-[24px] ">{title}</div>
-        <div className="text-[#7F7F7F]">
+        <div className="text-gray-40">
           {dateStart.replaceAll('-', '/')} ~ {dateEnd.replaceAll('-', '/')}
         </div>
       </div>
