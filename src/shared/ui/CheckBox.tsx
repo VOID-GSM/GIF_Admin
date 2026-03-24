@@ -1,4 +1,7 @@
-export default function CheckBox({ isActive = true }) {
+interface CheckBoxProps {
+  isActive?: boolean;
+}
+export default function CheckBox({ isActive = false }: CheckBoxProps) {
   return (
     <>
       {isActive ? (
