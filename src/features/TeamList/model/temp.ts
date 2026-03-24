@@ -1,7 +1,7 @@
 export type Grade = 1 | 2;
 
 export interface TeamListProps {
-  id?: number;
+  id: number;
   title: string;
   isSubmitted: boolean;
   grade: Grade;
