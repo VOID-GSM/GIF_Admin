@@ -10,7 +10,7 @@ export interface TeamListProps {
 export const MOCK_TEAMLIST: TeamListProps[] = [
   {
     id: 1,
-    title: '짬뽕밥',
+    title: '팀1',
     isSubmitted: true,
     grade: 1,
   },
@@ -22,44 +22,50 @@ export const MOCK_TEAMLIST: TeamListProps[] = [
   },
   {
     id: 3,
-    title: '팀1',
-    isSubmitted: true,
-    grade: 1,
-  },
-  {
-    id: 4,
     title: '팀3',
     isSubmitted: true,
     grade: 1,
   },
   {
-    id: 5,
+    id: 4,
     title: '팀4',
+    isSubmitted: true,
+    grade: 1,
+  },
+  {
+    id: 5,
+    title: '팀5',
     isSubmitted: false,
     grade: 1,
   },
   {
     id: 6,
-    title: '팀5',
+    title: '팀6',
     isSubmitted: true,
     grade: 1,
   },
   {
     id: 7,
-    title: '팀6',
+    title: '팀7',
     isSubmitted: false,
-    grade: 1,
+    grade: 2,
   },
   {
     id: 8,
-    title: '팀7',
+    title: '팀8',
     isSubmitted: false,
-    grade: 1,
+    grade: 2,
   },
   {
     id: 9,
-    title: '팀8',
+    title: '팀9',
     isSubmitted: true,
-    grade: 1,
+    grade: 2,
+  },
+  {
+    id: 10,
+    title: '팀10',
+    isSubmitted: true,
+    grade: 2,
   },
 ];
