@@ -9,7 +9,7 @@ export default function CheckButton({ isSubmitted, onClick }: CheckButtonProps) 
       type="button"
       onClick={onClick}
       disabled={!isSubmitted}
-      className={`w-30 h-10 rounded-[10px] font-medium text-lg 
+      className={`w-[120px] h-10 rounded-[10px] font-medium text-lg 
       ${isSubmitted ? 'bg-green-50 cursor-pointer' : 'bg-high-emphasis'}`}
     >
       양식 확인하기

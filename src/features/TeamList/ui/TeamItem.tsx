@@ -8,7 +8,7 @@ export default function TeamItem({ id, title, isSubmitted }: TeamListProps) {
   const router = useRouter();
 
   return (
-    <div className="flex w-120 h-10 justify-between items-center text-xl font-medium">
+    <div className="flex w-[480px] h-10 justify-between items-center text-xl font-medium">
       {title}
       <CheckButton
         isSubmitted={isSubmitted}
