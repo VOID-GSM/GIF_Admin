@@ -1,4 +1,4 @@
-import { Grade } from '@/src/features/DateFilter/model/temp';
+import { Grade } from '@/features/DateFilter/model/temp';
 
 interface GradeButtonProps {
   value: Grade;
