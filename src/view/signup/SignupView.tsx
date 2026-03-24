@@ -23,15 +23,18 @@ export default function SignupView() {
             placeholder="이름을 입력하세요"
             onChange={(e) => setName(e.target.value)}
           />
-          <div className="flex items-center gap-2">
-            <div onClick={() => setIsMaster((prev) => !prev)}>
-              <CheckBox isActive={isMaster} />
-            </div>
-
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={isMaster}
+              onChange={() => setIsMaster((prev) => !prev)}
+              className="sr-only"
+            />
+            <CheckBox isActive={isMaster} />
             <p className="text-xs text-gray-60 font-medium">
               아이디어 페스티벌 담당 선생님이신가요?
             </p>
-          </div>
+          </label>
           <Button disabled={!isReady} type="submit">
             시작하기
           </Button>
