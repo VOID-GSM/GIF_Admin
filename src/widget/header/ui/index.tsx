@@ -12,16 +12,16 @@ interface HeaderProps {
   role?: "ADMIN" | "MASTER";
 }
 
+const checkIsEventDay = () => {
+  const now = new Date();
+  return now.getMonth() + 1 === 12 && [28, 29].includes(now.getDate());
+};
+
 export default function Header({ role = "ADMIN" }: HeaderProps) { // AMDIN 임시로 지정
   const pathname = usePathname();
   const isMaster = role === "MASTER";
   const menuList = isMaster ? MASTER_MENU : ADMIN_MENU;
   const gapClass = isMaster ? "gap-6" : "gap-30";
-
-  const checkIsEventDay = () => {
-    const now = new Date();
-    return now.getMonth() + 1 === 12 && [28, 29].includes(now.getDate());
-  };
 
   const [isEventDay, setIsEventDay] = useState(checkIsEventDay);
 
