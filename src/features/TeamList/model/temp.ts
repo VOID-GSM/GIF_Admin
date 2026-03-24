@@ -1,4 +1,4 @@
-export type Grade = 1 | 2;
+import { Grade } from '@/src/entities/submissionGrade/model/types';
 
 export interface TeamListProps {
   id: number;

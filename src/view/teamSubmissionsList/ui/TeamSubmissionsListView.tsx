@@ -1,6 +1,6 @@
 'use client';
 
-import { Grade } from '@/src/features/DateFilter/model/temp';
+import { Grade } from '@/src/entities/submissionGrade/model/types';
 import { useState } from 'react';
 import GradeButton from '@/src/shared/ui/button/GradeButton';
 import TeamList from '@/src/features/TeamList/ui/TeamList';
