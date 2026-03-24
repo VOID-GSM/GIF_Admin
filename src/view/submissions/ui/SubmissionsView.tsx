@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Grade } from '@/src/features/DateFilter/model/temp';
-import GradeButton from '@/src/shared/ui/button/GradeButton';
-import DateFilter from '@/src/features/DateFilter/ui/DateFilter';
+import { Grade } from '@/features/DateFilter/model/temp';
+import GradeButton from '@/shared/ui/button/GradeButton';
+import DateFilter from '@/features/DateFilter/ui/DateFilter';
 
 const SUPPORTED_GRADES = [1, 2] as const;
 
