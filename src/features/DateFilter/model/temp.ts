@@ -1,6 +1,6 @@
 export type Grade = 1 | 2;
 
-export interface Submission {
+interface SubmissionProps {
   id: number;
   title: string;
   dateStart: string;
@@ -8,7 +8,7 @@ export interface Submission {
   grade: Grade;
 }
 
-export const MOCK_SUBMISSION: Submission[] = [
+export const MOCK_SUBMISSION: SubmissionProps[] = [
   {
     id: 1,
     title: '배너 제출하기',
