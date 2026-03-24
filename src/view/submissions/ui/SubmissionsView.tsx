@@ -7,7 +7,7 @@ import DateFilter from '@/src/features/DateFilter/ui/DateFilter';
 
 const SUPPORTED_GRADES = [1, 2] as const;
 
-export default function SubmitForm() {
+export default function Submissions() {
   const [selectedGrade, setSelectedGrade] = useState<Grade>(1);
 
   return (
