@@ -16,7 +16,7 @@ export default function SubmissionCard({
   isExpired,
 }: SubmissionCardProps) {
   return (
-    <Link href={`/submissions/${id}`} className="block">
+    <Link href={`/submissions/list/${id}`} className="block">
       <div
         className={`flex w-[550px] h-20 border border-gray-70 rounded-lg justify-between items-center pl-[25px] pr-[42px]
       ${isExpired ? 'text-gray-50 bg-high-emphasis' : 'text-black bg-white'}`}
