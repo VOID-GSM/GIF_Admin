@@ -1,4 +1,4 @@
-import GoogleLogo from '@/src/shared/asset/svg/GoogleLogo';
+import GoogleLogo from '@/shared/asset/svg/GoogleLogo';
 
 export default function GoogleLoginButton() {
   return (

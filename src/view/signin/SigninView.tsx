@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Logo from '@/src/shared/asset/img/gif_logo.png';
-import GoogleLoginButton from '@/src/widget/signin/GoogleLoginButton';
+import Logo from '@/shared/asset/img/gif_logo.png';
+import GoogleLoginButton from '@/widget/signin/GoogleLoginButton';
 
 export default function SigninView() {
   return (

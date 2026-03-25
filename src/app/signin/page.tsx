@@ -1,4 +1,4 @@
-import SigninView from '@/src/view/signin/SigninView';
+import SigninView from '@/view/signin/SigninView';
 
 export default function SigninPage() {
   return <SigninView />;

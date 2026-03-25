@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import Logo from "@/src/shared/asset/img/gif_logo.png";
-import Image from "next/image";
-import { HeaderMenu } from "./headerMenu";
-import { usePathname } from "next/navigation";
-import { ADMIN_MENU, MASTER_MENU } from "../model/menuData";
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Logo from '@/shared/asset/img/gif_logo.png';
+import Image from 'next/image';
+import { HeaderMenu } from './headerMenu';
+import { usePathname } from 'next/navigation';
+import { ADMIN_MENU, MASTER_MENU } from '../model/menuData';
 
 interface HeaderProps {
-  role?: "ADMIN" | "MASTER";
+  role?: 'ADMIN' | 'MASTER';
 }
 
 const checkIsEventDay = () => {
@@ -17,11 +17,12 @@ const checkIsEventDay = () => {
   return now.getMonth() + 1 === 12 && [28, 29].includes(now.getDate());
 };
 
-export default function Header({ role = "ADMIN" }: HeaderProps) { // AMDIN 임시로 지정
+export default function Header({ role = 'ADMIN' }: HeaderProps) {
+  // AMDIN 임시로 지정
   const pathname = usePathname();
-  const isMaster = role === "MASTER";
+  const isMaster = role === 'MASTER';
   const menuList = isMaster ? MASTER_MENU : ADMIN_MENU;
-  const gapClass = isMaster ? "gap-6" : "gap-30";
+  const gapClass = isMaster ? 'gap-6' : 'gap-30';
 
   const [isEventDay, setIsEventDay] = useState(checkIsEventDay);
 
@@ -40,8 +41,8 @@ export default function Header({ role = "ADMIN" }: HeaderProps) { // AMDIN 임�
 
       <div className={`flex ${gapClass} ml-[70px]`}>
         {menuList.map((menu) => (
-          <HeaderMenu 
-            key={menu.href} 
+          <HeaderMenu
+            key={menu.href}
             title={menu.title}
             isActive={pathname === menu.href}
             href={menu.href}
