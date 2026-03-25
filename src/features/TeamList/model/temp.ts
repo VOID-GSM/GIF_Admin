@@ -1,13 +1,13 @@
 import { Grade } from '@/entities/submissionGrade/model/types';
 
-export interface TeamListProps {
+export interface TeamProps {
   id: number;
   title: string;
   isSubmitted: boolean;
   grade?: Grade;
 }
 
-export const MOCK_TEAMLIST: TeamListProps[] = [
+export const MOCK_TEAMLIST: TeamProps[] = [
   {
     id: 1,
     title: '팀1',

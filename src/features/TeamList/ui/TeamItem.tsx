@@ -2,9 +2,14 @@
 
 import { useRouter } from 'next/navigation';
 import CheckButton from '@/shared/ui/button/CheckButton';
-import type { TeamListProps } from '../model/temp';
 
-export default function TeamItem({ id, title, isSubmitted }: TeamListProps) {
+interface TeamItemProps {
+  id: number;
+  title: string;
+  isSubmitted: boolean;
+}
+
+export default function TeamItem({ id, title, isSubmitted }: TeamItemProps) {
   const router = useRouter();
 
   return (
