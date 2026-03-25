@@ -2,10 +2,10 @@
 
 import { useMemo, useState } from 'react';
 import Button from '@/shared/ui/button/Button';
-import ScoreButton from '@/widget/scores/ui/ScoreButton';
-import { SCORE_CATEGORIES } from '@/view/scores/model/ScoreData';
+import ScoreButton from '@/widget/assigning/ui/ScoreButton';
+import { SCORE_CATEGORIES } from '@/view/assigning/model/ScoreData';
 
-export default function ScoresView() {
+export default function AssigningView() {
   const [selected, setSelected] = useState<Record<string, number>>({});
 
   const handleSelect = (categoryId: string, score: number) => {
