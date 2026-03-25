@@ -1,9 +1,9 @@
 'use client';
 
-import { Grade } from '@/src/entities/submissionGrade/model/types';
+import { Grade } from '@/entities/submissionGrade/model/types';
 import { useState } from 'react';
-import GradeButton from '@/src/shared/ui/button/GradeButton';
-import TeamList from '@/src/features/TeamList/ui/TeamList';
+import GradeButton from '@/shared/ui/button/GradeButton';
+import TeamList from '@/features/TeamList/ui/TeamList';
 
 const SUPPORTED_GRADES = [1, 2] as const;
 
