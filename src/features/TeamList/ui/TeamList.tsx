@@ -12,13 +12,7 @@ export default function TeamList({ selectedGrade }: Props) {
   return (
     <div className="flex flex-col gap-5">
       {filteredList.map((item) => (
-        <TeamItem
-          key={item.id}
-          id={item.id}
-          title={item.title}
-          isSubmitted={item.isSubmitted}
-          grade={item.grade}
-        />
+        <TeamItem key={item.id} id={item.id} title={item.title} isSubmitted={item.isSubmitted} />
       ))}
     </div>
   );

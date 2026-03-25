@@ -4,7 +4,7 @@ export interface TeamListProps {
   id: number;
   title: string;
   isSubmitted: boolean;
-  grade: Grade;
+  grade?: Grade;
 }
 
 export const MOCK_TEAMLIST: TeamListProps[] = [
