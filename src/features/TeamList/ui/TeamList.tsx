@@ -1,6 +1,6 @@
 import TeamItem from './TeamItem';
 import { MOCK_TEAMLIST } from '../model/temp';
-import { Grade } from '@/src/entities/submissionGrade/model/types';
+import { Grade } from '@/entities/submissionGrade/model/types';
 
 interface Props {
   selectedGrade: Grade;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import CheckButton from '@/src/shared/ui/button/CheckButton';
+import CheckButton from '@/shared/ui/button/CheckButton';
 import type { TeamListProps } from '../model/temp';
 
 export default function TeamItem({ id, title, isSubmitted }: TeamListProps) {

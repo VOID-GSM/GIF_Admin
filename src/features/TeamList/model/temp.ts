@@ -1,4 +1,4 @@
-import { Grade } from '@/src/entities/submissionGrade/model/types';
+import { Grade } from '@/entities/submissionGrade/model/types';
 
 export interface TeamListProps {
   id: number;
