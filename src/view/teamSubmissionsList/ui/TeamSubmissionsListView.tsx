@@ -5,7 +5,7 @@ import { useState } from 'react';
 import GradeButton from '@/shared/ui/button/GradeButton';
 import TeamList from '@/features/TeamList/ui/TeamList';
 
-const SUPPORTED_GRADES = [1, 2] as const;
+const SUPPORTED_GRADES: Grade[] = [1, 2];
 
 export default function TeamSubmissionsList() {
   const [selectedGrade, setSelectedGrade] = useState<Grade>(1);
