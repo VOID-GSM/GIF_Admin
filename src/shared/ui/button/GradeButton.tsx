@@ -1,4 +1,4 @@
-import { Grade } from '@/features/DateFilter/model/temp';
+import { Grade } from '@/entities/submissionGrade/model/types';
 
 interface GradeButtonProps {
   value: Grade;

@@ -2,7 +2,8 @@
 
 import { useMemo } from 'react';
 import SubmissionCard from '@/shared/ui/card/SubmissionCard';
-import { MOCK_SUBMISSION, Grade } from '@/features/DateFilter/model/temp';
+import { MOCK_SUBMISSION } from '@/entities/dateFilter/model/temp';
+import { Grade } from '@/entities/submissionGrade/model/types';
 
 interface DateFilterProps {
   selectedGrade: Grade;

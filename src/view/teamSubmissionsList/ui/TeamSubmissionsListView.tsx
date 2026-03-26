@@ -1,17 +1,17 @@
 'use client';
 
-import { useState } from 'react';
 import { Grade } from '@/entities/submissionGrade/model/types';
+import { useState } from 'react';
 import GradeButton from '@/shared/ui/button/GradeButton';
-import DateFilter from '@/features/DateFilter/ui/DateFilter';
+import TeamList from '@/features/TeamList/ui/TeamList';
 
-const SUPPORTED_GRADES = [1, 2] as const;
+const SUPPORTED_GRADES: Grade[] = [1, 2];
 
-export default function Submissions() {
+export default function TeamSubmissionsList() {
   const [selectedGrade, setSelectedGrade] = useState<Grade>(1);
 
   return (
-    <div className="flex flex-col gap-[50px] items-center mt-20">
+    <div className="flex flex-col gap-[65px] items-center mt-[50px]">
       <div className="flex gap-[100px]">
         {SUPPORTED_GRADES.map((grade) => (
           <GradeButton
@@ -22,7 +22,7 @@ export default function Submissions() {
           />
         ))}
       </div>
-      <DateFilter selectedGrade={selectedGrade} />
+      <TeamList selectedGrade={selectedGrade} />
     </div>
   );
 }
