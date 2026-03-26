@@ -1,5 +1,5 @@
 import TeamItem from './TeamItem';
-import { MOCK_TEAMLIST } from '../model/temp';
+import { MOCK_TEAMLIST } from '../../../entities/teamList/model/temp';
 import { Grade } from '@/entities/submissionGrade/model/types';
 
 interface Props {
