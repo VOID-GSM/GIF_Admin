@@ -1,11 +1,15 @@
 'use client';
+interface AssigningViewProps {
+  projectName: string;
+  teamName: string;
+}
 
 import { useMemo, useState } from 'react';
 import Button from '@/shared/ui/button/Button';
 import ScoreButton from '@/widget/assigning/ui/ScoreButton';
 import { SCORE_CATEGORIES } from '@/view/assigning/model/ScoreData';
 
-export default function AssigningView() {
+export default function AssigningView({ projectName, teamName }: AssigningViewProps) {
   const [selected, setSelected] = useState<Record<string, number>>({});
 
   const handleSelect = (categoryId: string, score: number) => {
@@ -20,8 +24,8 @@ export default function AssigningView() {
   return (
     <div className="flex flex-col items-center w-full pt-[87px] pb-[52px]">
       <div className="flex items-center gap-4 w-full max-w-[450px] mb-[110px]">
-        <span className="text-2xl font-semibold">PolishMe</span>
-        <span className="font-medium">짬뽕밥</span>
+        <span className="text-2xl font-semibold">{projectName}</span>
+        <span className="font-medium">{teamName}</span>
       </div>
 
       <div className="flex flex-col gap-[103px] w-full max-w-[450px]">
