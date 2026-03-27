@@ -22,7 +22,7 @@ export default function Button({
   const variantStyle = disabled
     ? 'bg-gray-100 text-white'
     : variant === 'sub'
-      ? 'bg-gray-100 cursor-pointer'
+      ? 'bg-gray-100 cursor-pointer text-white'
       : 'bg-main text-white cursor-pointer';
   return (
     <button
