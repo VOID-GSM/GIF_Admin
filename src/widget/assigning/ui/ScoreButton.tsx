@@ -1,5 +1,3 @@
-'use client';
-
 interface ScoreButtonProps {
   score: number;
   isSelected: boolean;
