@@ -4,7 +4,7 @@ export const MOCK_DETAIL: SubmissionItem[] = [
   {
     id: 1,
     subtitle: '아이디어 페스티벌 배너 작성 설명',
-    content: '베너의 글씨체는 노토 산스로 고정입니다 기한 안으로 제출해주세요',
+    content: '배너의 글씨체는 노토 산스로 고정입니다 기한 안으로 제출해주세요',
     type: 'file',
     file: 'report_2026.pdf',
     fileSize: '1.8MB',
@@ -12,7 +12,7 @@ export const MOCK_DETAIL: SubmissionItem[] = [
   },
   {
     id: 2,
-    subtitle: '베너에 들어갈 글 입력',
+    subtitle: '배너에 들어갈 글 입력',
     content: '짧게 입력해주세요',
     type: 'text',
     text: '텍스트 텍스트 텍스트',
