@@ -6,15 +6,14 @@ import { SubmissionItem } from '@/entities/detail/model/type';
 export default function SubmissionsCard({ item }: { item: SubmissionItem }) {
   switch (item.type) {
     case 'file':
-      return (
-        <SubmissionsUploadCard
-          file={item.file!}
-          fileSize={item.fileSize!}
-          fileUrl={item.fileUrl!}
-        />
-      );
+      if (item.file && item.fileSize && item.fileUrl) {
+        return (
+          <SubmissionsUploadCard file={item.file} fileSize={item.fileSize} fileUrl={item.fileUrl} />
+        );
+      }
+      return null;
     case 'text':
-      return <SubmissionsTextCard text={item.text!} />;
+      return item.text ? <SubmissionsTextCard text={item.text} /> : null;
     case 'schedule':
       return <SubmissionsScheduleCard schedules={item.schedules ?? []} />;
   }
