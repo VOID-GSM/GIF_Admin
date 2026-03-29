@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useMemo } from 'react';
+import { CalendarSchedule } from '@/entities/detail/model/type';
 
 const DAY_OF_WEEK = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const ALL_MONTHS = Array.from({ length: 12 }, (_, i) => `${i + 1}월`);
@@ -14,14 +15,6 @@ const COLOR_MAP: Record<string, string> = {
   'bg-pastel-blue': '#A0C4FF',
   'bg-pastel-purple': '#BDB2FF',
 };
-
-export interface CalendarSchedule {
-  id: number;
-  startDate: Date;
-  endDate: Date;
-  title: string;
-  color: string;
-}
 
 interface SubmissionsScheduleCardProps {
   schedules: CalendarSchedule[];
