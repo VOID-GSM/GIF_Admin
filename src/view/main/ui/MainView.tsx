@@ -37,7 +37,7 @@ export default function MainView({ role }: MainViewProps) {
           <ProjectCard
             key={project.id}
             project={project}
-            href={`/${role}/assigning/${project.id}`}
+            href={'/' + role.toLowerCase() + '/assigning/' + project.id}
           />
         ))}
       </div>
