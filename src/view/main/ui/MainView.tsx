@@ -9,7 +9,7 @@ import GradeButton from '@/shared/ui/button/GradeButton';
 const SUPPORTED_GRADES: Grade[] = [1, 2];
 
 interface MainViewProps {
-  role?: 'ADMIN' | 'MASTER';
+  role: 'ADMIN' | 'MASTER';
 }
 
 export default function MainView({ role }: MainViewProps) {
