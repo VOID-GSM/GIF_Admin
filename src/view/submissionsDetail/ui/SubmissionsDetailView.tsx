@@ -5,7 +5,7 @@ import { MOCK_DETAIL } from '@/entities/detail/model/temp';
 
 export default function SubmissionsDetail() {
   return (
-    <div className="flex flex-col items-center mt-24 mb-24">
+    <div className="flex flex-col items-center mt-24 pb-24">
       <div className="flex flex-col gap-[30px] items-center">
         <span className="text-2xl font-semibold">배너 작성 안내</span>
         <span className="self-start font-medium text-gray-40">마감일: 2026.02.12</span>
