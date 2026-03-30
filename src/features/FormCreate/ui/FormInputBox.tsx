@@ -16,14 +16,11 @@ export default function FormInputBox({ value, placeholder, type, onClick }: Form
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
+  const className =
+    'flex w-[550px] h-[50px] px-[15px] items-center text-lg font-medium border border-gray-80 focus:outline-none focus:border-main placeholder:text-gray-80 rounded-[10px]';
+
   const inputMap: Record<FormInputType, React.ReactNode> = {
-    input: (
-      <input
-        type="text"
-        placeholder={placeholder}
-        className="flex w-[550px] h-[50px] px-[15px] items-center text-lg font-medium border border-gray-80 focus:outline-none focus:border-main placeholder:text-gray-80 rounded-[10px]"
-      />
-    ),
+    input: <input type="text" placeholder={placeholder} className={className} />,
     calender: (
       <>
         <input
@@ -32,7 +29,7 @@ export default function FormInputBox({ value, placeholder, type, onClick }: Form
           readOnly
           value={selectedDate}
           onClick={() => setIsOpen((prev) => !prev)}
-          className="flex w-[550px] h-[50px] px-[15px] items-center text-lg font-medium border border-gray-80 focus:outline-none focus:border-main placeholder:text-gray-80 rounded-[10px]"
+          className={className}
         />
         {isOpen && (
           <Calender
