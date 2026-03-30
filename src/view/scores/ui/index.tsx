@@ -11,10 +11,12 @@ const TOTAL_TEACHERS = 20;
 const TOTAL_TEAMS = 30;
 const SUPPORTED_GRADES = [1, 2] as const;
 
-const MOCK_SCORED_COUNT_GRADE_1 = Array.from({ length: TOTAL_TEAMS / 2 }, () => TOTAL_TEACHERS); // 전부 완료 상태
-const MOCK_SCORED_COUNT_GRADE_2 = Array.from(
-  { length: TOTAL_TEAMS / 2 },
-  (_, i) => (i < 3 ? TOTAL_TEACHERS - 1 : TOTAL_TEACHERS), // 일부 미완료 상태
+const MOCK_SCORED_COUNT_GRADE_1 = Array.from(
+  { length: Math.floor(TOTAL_TEAMS / 2) },
+  () => TOTAL_TEACHERS,
+);
+const MOCK_SCORED_COUNT_GRADE_2 = Array.from({ length: Math.floor(TOTAL_TEAMS / 2) }, (_, i) =>
+  i < 3 ? TOTAL_TEACHERS - 1 : TOTAL_TEACHERS,
 );
 
 export default function ScoresView() {
