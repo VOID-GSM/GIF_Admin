@@ -1,6 +1,6 @@
 import SubmissionsUploadCard from '@/features/Detailsubmissions/ui/SubmissionsUploadCard';
 import SubmissionsTextCard from '@/features/Detailsubmissions/ui/SubmissionsTextCard';
-import SubmissionsScheduleCard from '@/features/Detailsubmissions/ui/SubmissionsCalenderCard';
+import SubmissionsScheduleCard from '@/features/Detailsubmissions/ui/SubmissionsScheduleCard';
 import { SubmissionItem } from '@/entities/detail/model/type';
 
 export default function SubmissionsCard({ item }: { item: SubmissionItem }) {
