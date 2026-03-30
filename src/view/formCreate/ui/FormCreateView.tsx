@@ -6,7 +6,7 @@ import FormInputBox from '@/features/FormCreate/ui/FormInputBox';
 import FormFeildBox from '@/features/FormCreate/ui/FormFeildBox';
 import ConfirmModal from '@/widget/formCreate/ui/confirmModal';
 
-export default function FormCreatePage() {
+export default function FormCreateView() {
   const [fields, setFields] = useState([{ id: 1 }, { id: 2 }]);
   const nextId = useRef(3);
   const [isModalOpen, setIsModalOpen] = useState(false);
