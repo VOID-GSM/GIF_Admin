@@ -39,13 +39,11 @@ export default function Calendar({ onSelect }: CalenderProps) {
   }, [viewDate]);
 
   const handleSelectDate = (date: Date) => {
-    // 첫번째 클릭 or 이미 범위 선택 완료된 상태면 start 초기화
     if (!range.start || (range.start && range.end)) {
       setRange({ start: date, end: null });
       return;
     }
 
-    // 두번째 클릭
     const start = date < range.start ? date : range.start;
     const end = date < range.start ? range.start : date;
     setRange({ start, end });
@@ -65,15 +63,12 @@ export default function Calendar({ onSelect }: CalenderProps) {
   }, [viewDate]);
 
   return (
-    // absolute로 띄워서 아래 요소 밀리지 않도록
     <div className="absolute z-50 top-[80px] left-0 flex justify-end w-full">
       <div className="flex flex-col gap-2 bg-white border border-gray-80 rounded-[10px] p-4 w-[400px] h-[380px]">
-        {/* 년월 헤더 */}
         <div className="text-center font-bold">
           {`${viewDate.getFullYear()}. ${gapDate(viewDate.getMonth() + 1)}.`}
         </div>
 
-        {/* 월 스크롤 */}
         <div className="relative">
           <div
             ref={scrollRef}
@@ -99,14 +94,12 @@ export default function Calendar({ onSelect }: CalenderProps) {
           </div>
         </div>
 
-        {/* 요일 헤더 */}
         <div className="grid grid-cols-7 text-center font-bold text-main text-sm">
           {DAY_OF_WEEK.map((name, i) => (
             <span key={i}>{name}</span>
           ))}
         </div>
 
-        {/* 날짜 그리드 */}
         <div className="grid grid-cols-7 gap-y-1">
           {days.map((item, index) => {
             const isToday = item.fullDate?.toDateString() === today.toDateString();
