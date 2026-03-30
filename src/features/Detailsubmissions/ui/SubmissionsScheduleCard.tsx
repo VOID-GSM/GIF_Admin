@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { CalendarSchedule } from '@/entities/detail/model/type';
 
-const DAY_OF_WEEK = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+const DAY_OF_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const ALL_MONTHS = Array.from({ length: 12 }, (_, i) => `${i + 1}월`);
 
 const COLOR_MAP: Record<string, string> = {
