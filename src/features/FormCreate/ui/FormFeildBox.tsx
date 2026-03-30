@@ -48,9 +48,14 @@ export default function FormFeildBox({ onDeleted }: FormFeildBoxProps) {
           {isDropdownOpen && (
             <div className="flex flex-col justify-center absolute right-0 w-[92px] h-[88px] gap-[7px] bg-white rounded-[5px] px-[12px] shadow-lg z-10">
               {styles.map((style, index) => (
-                <div key={index} className="cursor-pointer" onClick={() => handleSelect(style)}>
+                <button
+                  type="button"
+                  key={index}
+                  className="cursor-pointer"
+                  onClick={() => handleSelect(style)}
+                >
                   {style}
-                </div>
+                </button>
               ))}
             </div>
           )}
