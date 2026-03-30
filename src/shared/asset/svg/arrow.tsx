@@ -1,8 +1,8 @@
-interface CalenderProps {
+interface ArrowProps {
   isOpen: boolean;
 }
 
-export default function Arrow({ isOpen }: CalenderProps) {
+export default function Arrow({ isOpen }: ArrowProps) {
   return (
     <svg
       width="20"
