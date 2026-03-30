@@ -20,7 +20,7 @@ export default function Podium({ rankings }: PodiumProps) {
   return (
     <div className="flex items-end justify-center gap-[50px]">
       {top3.map((item) => (
-        <div key={item.rank} className="flex flex-col items-center">
+        <div key={item.name} className="flex flex-col items-center">
           <span className="font-medium text-xl">{item.name}</span>
           <span className="text-main font-semibold">{item.score}점</span>
           <div
