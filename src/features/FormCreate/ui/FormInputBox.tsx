@@ -9,10 +9,9 @@ interface FormInputBoxProps {
   value: string;
   placeholder: string;
   type: FormInputType;
-  onClick?: () => void;
 }
 
-export default function FormInputBox({ value, placeholder, type, onClick }: FormInputBoxProps) {
+export default function FormInputBox({ value, placeholder, type }: FormInputBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
