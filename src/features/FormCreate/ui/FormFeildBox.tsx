@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Card from '@/shared/ui/card/Card';
 import Arrow from '@/shared/asset/svg/arrow';
 import Deleted from '@/shared/asset/svg/deleted';
+import { on } from 'events';
 
 const styles = ['캘린더', '줄 글', '파일'];
 const styleMap: Record<string, string> = {
@@ -14,15 +15,23 @@ const styleMap: Record<string, string> = {
 
 interface FormFeildBoxProps {
   onDeleted: () => void;
+  onDone: (isDone: boolean) => void;
 }
 
-export default function FormFeildBox({ onDeleted }: FormFeildBoxProps) {
+export default function FormFeildBox({ onDeleted, onDone }: FormFeildBoxProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
+  const checkDone = (t: string, d: string, s: string | null) => {
+    onDone(t.trim() !== '' && d.trim() !== '' && s !== null);
+  };
 
   const handleSelect = (style: string) => {
     setSelectedStyle(style);
     setIsDropdownOpen(false);
+    checkDone(title, description, style);
   };
 
   const className =
@@ -35,10 +44,18 @@ export default function FormFeildBox({ onDeleted }: FormFeildBoxProps) {
           type="text"
           placeholder="양식의 제목을 입력하세요"
           className={`h-[50px] ${className}`}
+          onChange={(e) => {
+            setTitle(e.target.value);
+            checkDone(e.target.value, description, selectedStyle);
+          }}
         />
         <textarea
           placeholder="설명을 입력하세요"
           className={`h-[100px] resize-none ${className}`}
+          onChange={(e) => {
+            setDescription(e.target.value);
+            checkDone(title, e.target.value, selectedStyle);
+          }}
         />
         <div>
           <div
@@ -51,7 +68,7 @@ export default function FormFeildBox({ onDeleted }: FormFeildBoxProps) {
             <Arrow isOpen={isDropdownOpen} />
           </div>
           {isDropdownOpen && (
-            <div className="flex flex-col justify-center absolute right-0 w-[92px] h-[88px] gap-[7px] bg-white rounded-[5px] px-[12px] shadow-lg z-10">
+            <div className="flex flex-col justify-center items-start absolute right-0 w-[92px] h-[88px] gap-[7px] bg-white rounded-[5px] px-[12px] shadow-lg z-10">
               {styles.map((style) => (
                 <button
                   type="button"

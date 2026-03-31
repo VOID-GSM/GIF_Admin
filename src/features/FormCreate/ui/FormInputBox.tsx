@@ -9,9 +9,10 @@ interface FormInputBoxProps {
   value: string;
   placeholder: string;
   type: FormInputType;
+  onDone: (isDone: boolean) => void;
 }
 
-export default function FormInputBox({ value, placeholder, type }: FormInputBoxProps) {
+export default function FormInputBox({ value, placeholder, type, onDone }: FormInputBoxProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
@@ -19,7 +20,14 @@ export default function FormInputBox({ value, placeholder, type }: FormInputBoxP
     'flex w-[550px] h-[50px] px-[15px] items-center text-lg font-medium border border-gray-80 focus:outline-none focus:border-main placeholder:text-gray-80 rounded-[10px]';
 
   const inputMap: Record<FormInputType, React.ReactNode> = {
-    input: <input type="text" placeholder={placeholder} className={className} />,
+    input: (
+      <input
+        type="text"
+        placeholder={placeholder}
+        className={className}
+        onChange={(e) => onDone(e.target.value.trim() !== '')}
+      />
+    ),
     calender: (
       <>
         <input
@@ -35,6 +43,7 @@ export default function FormInputBox({ value, placeholder, type }: FormInputBoxP
             onSelect={(start, end) => {
               setSelectedDate(`${start} ~ ${end}`);
               setIsOpen(false);
+              onDone(true);
             }}
           />
         )}
