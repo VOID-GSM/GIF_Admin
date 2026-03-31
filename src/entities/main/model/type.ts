@@ -1,8 +1,8 @@
 import { Grade } from '@/entities/submissionGrade/model/types';
 
 export interface Project {
-  id: string;
-  title: string;
+  id: number;
+  projectName: string;
   members: string;
   imageUrl: string;
   grade?: Grade;
