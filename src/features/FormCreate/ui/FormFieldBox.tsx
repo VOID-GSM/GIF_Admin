@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRef, useEffect } from 'react';
 import Card from '@/shared/ui/card/Card';
 import Arrow from '@/shared/asset/svg/arrow';
 import Deleted from '@/shared/asset/svg/deleted';
@@ -33,7 +34,19 @@ export default function FormFieldBox({ onDeleted, onDone }: FormFieldBoxProps) {
     checkDone(title, description, style);
   };
 
-  const className =
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const boxClassName =
     'w-full px-[15px] py-[14px] bg-white border border-gray-80 focus:outline-none focus:border-main placeholder:text-gray-80 rounded-[10px]';
 
   return (
@@ -42,7 +55,7 @@ export default function FormFieldBox({ onDeleted, onDone }: FormFieldBoxProps) {
         <input
           type="text"
           placeholder="양식의 제목을 입력하세요"
-          className={`h-[50px] ${className}`}
+          className={`h-[50px] ${boxClassName}`}
           onChange={(e) => {
             setTitle(e.target.value);
             checkDone(e.target.value, description, selectedStyle);
@@ -50,15 +63,15 @@ export default function FormFieldBox({ onDeleted, onDone }: FormFieldBoxProps) {
         />
         <textarea
           placeholder="설명을 입력하세요"
-          className={`h-[100px] resize-none ${className}`}
+          className={`h-[100px] resize-none ${boxClassName}`}
           onChange={(e) => {
             setDescription(e.target.value);
             checkDone(title, e.target.value, selectedStyle);
           }}
         />
-        <div>
+        <div ref={dropdownRef}>
           <div
-            className={`flex items-center justify-between h-[50px] text-gray-80 ${isDropdownOpen ? 'border-main' : 'border-gray-80'} ${className}`}
+            className={`flex items-center justify-between h-[50px] text-gray-80 ${isDropdownOpen ? 'border-main' : 'border-gray-80'} ${boxClassName}`}
             onClick={() => setIsDropdownOpen((prev) => !prev)}
           >
             <span className={selectedStyle ? 'text-black' : 'text-gray-80'}>
