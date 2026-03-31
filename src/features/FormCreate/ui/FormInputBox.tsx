@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Calender from '@/widget/formCreate/ui/calendar';
+import Calendar from '@/widget/formCreate/ui/calendar';
 
-type FormInputType = 'input' | 'calender';
+type FormInputType = 'input' | 'calendar';
 
 interface FormInputBoxProps {
   value: string;
@@ -16,7 +16,7 @@ export default function FormInputBox({ value, placeholder, type, onDone }: FormI
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
-  const className =
+  const inputClassName =
     'flex w-[550px] h-[50px] px-[15px] items-center text-lg font-medium border border-gray-80 focus:outline-none focus:border-main placeholder:text-gray-80 rounded-[10px]';
 
   const inputMap: Record<FormInputType, React.ReactNode> = {
@@ -24,11 +24,11 @@ export default function FormInputBox({ value, placeholder, type, onDone }: FormI
       <input
         type="text"
         placeholder={placeholder}
-        className={className}
+        className={inputClassName}
         onChange={(e) => onDone(e.target.value.trim() !== '')}
       />
     ),
-    calender: (
+    calendar: (
       <>
         <input
           type="text"
@@ -36,10 +36,10 @@ export default function FormInputBox({ value, placeholder, type, onDone }: FormI
           readOnly
           value={selectedDate}
           onClick={() => setIsOpen((prev) => !prev)}
-          className={className}
+          className={inputClassName}
         />
         {isOpen && (
-          <Calender
+          <Calendar
             onSelect={(start, end) => {
               setSelectedDate(`${start} ~ ${end}`);
               setIsOpen(false);
