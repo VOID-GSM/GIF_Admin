@@ -12,12 +12,12 @@ const styleMap: Record<string, string> = {
   파일: '파일 첨부',
 };
 
-interface FormFeildBoxProps {
+interface FormFieldBoxProps {
   onDeleted: () => void;
   onDone: (isDone: boolean) => void;
 }
 
-export default function FormFeildBox({ onDeleted, onDone }: FormFeildBoxProps) {
+export default function FormFieldBox({ onDeleted, onDone }: FormFieldBoxProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedStyle, setSelectedStyle] = useState<string | null>(null);
   const [title, setTitle] = useState('');

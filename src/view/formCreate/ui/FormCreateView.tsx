@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import FormButton from '@/shared/ui/button/formButton';
 import FormInputBox from '@/features/FormCreate/ui/FormInputBox';
-import FormFeildBox from '@/features/FormCreate/ui/FormFeildBox';
+import FormFieldBox from '@/features/FormCreate/ui/FormFieldBox';
 import ConfirmModal from '@/widget/formCreate/ui/confirmModal';
 
 export default function FormCreateView() {
@@ -54,7 +54,7 @@ export default function FormCreateView() {
 
       <div className="flex flex-col gap-[20px] mb-[20px]">
         {fields.map((field) => (
-          <FormFeildBox
+          <FormFieldBox
             key={field.id}
             onDeleted={() => handleDelete(field.id)}
             onDone={(isDone) => handleDone(field.id, isDone)}

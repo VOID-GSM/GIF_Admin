@@ -5,11 +5,11 @@ import { useState, useRef, useEffect, useMemo } from 'react';
 const DAY_OF_WEEK = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const ALL_MONTHS = Array.from({ length: 12 }, (_, i) => `${i + 1}월`);
 
-interface CalenderProps {
+interface CalendarProps {
   onSelect: (start: string, end: string) => void;
 }
 
-export default function Calendar({ onSelect }: CalenderProps) {
+export default function Calendar({ onSelect }: CalendarProps) {
   const today = useMemo(() => new Date(), []);
   const [viewDate, setViewDate] = useState(new Date());
   const [range, setRange] = useState<{ start: Date | null; end: Date | null }>({
