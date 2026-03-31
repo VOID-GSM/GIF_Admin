@@ -19,6 +19,7 @@ export default function ProjectDetailView() {
   }
 
   const [memo, setMemo] = useState('');
+  const [isEvaluationOpen, setIsEvaluationOpen] = useState(false);
 
   useEffect(() => {
     const savedMemo = localStorage.getItem(`memo-${project.id}`);
@@ -32,7 +33,14 @@ export default function ProjectDetailView() {
     localStorage.setItem(`memo-${project.id}`, newValue);
   };
 
-  const isEvaluationOpen = new Date() >= new Date(IDEA_FESTIVAL_START);
+  useEffect(() => {
+    const checkStatus = () => {
+      const isOpen = new Date() >= new Date(IDEA_FESTIVAL_START);
+      setIsEvaluationOpen(isOpen);
+    };
+
+    checkStatus();
+  }, []);
 
   const handleAssigning = () => {
     router.push('/assigning');
