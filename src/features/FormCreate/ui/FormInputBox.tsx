@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Calendar from '@/widget/formCreate/ui/calendar';
+import Calendar from '@/widget/formCreate/ui/Calendar';
 
 type FormInputType = 'input' | 'calendar';
 
