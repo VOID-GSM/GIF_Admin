@@ -9,7 +9,7 @@ import GradeButton from '@/shared/ui/button/GradeButton';
 const SUPPORTED_GRADES: Grade[] = [1, 2];
 
 interface MainViewProps {
-  role: 'ADMIN' | 'MASTER';
+  role?: 'ADMIN' | 'MASTER';
 }
 
 export default function MainView({ role }: MainViewProps) {
@@ -37,7 +37,7 @@ export default function MainView({ role }: MainViewProps) {
           <ProjectCard
             key={project.id}
             project={project}
-            href={`/${role.toLowerCase()}/projectDetail/${project.id}`}
+            href={`/projectDetail/${project.id}?role=${role?.toLowerCase()}`}
           />
         ))}
       </div>
