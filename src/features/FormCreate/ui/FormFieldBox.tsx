@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Card from '@/shared/ui/card/Card';
 import Arrow from '@/shared/asset/svg/arrow';
 import Deleted from '@/shared/asset/svg/deleted';
