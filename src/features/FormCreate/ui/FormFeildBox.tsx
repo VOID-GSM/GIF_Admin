@@ -6,6 +6,11 @@ import Arrow from '@/shared/asset/svg/arrow';
 import Deleted from '@/shared/asset/svg/deleted';
 
 const styles = ['캘린더', '줄 글', '파일'];
+const styleMap: Record<string, string> = {
+  캘린더: '캘린더',
+  '줄 글': '줄 글 텍스트',
+  파일: '파일 첨부',
+};
 
 interface FormFeildBoxProps {
   onDeleted: () => void;
@@ -47,16 +52,21 @@ export default function FormFeildBox({ onDeleted }: FormFeildBoxProps) {
           </div>
           {isDropdownOpen && (
             <div className="flex flex-col justify-center absolute right-0 w-[92px] h-[88px] gap-[7px] bg-white rounded-[5px] px-[12px] shadow-lg z-10">
-              {styles.map((style, index) => (
+              {styles.map((style) => (
                 <button
                   type="button"
-                  key={index}
+                  key={style}
                   className="cursor-pointer"
                   onClick={() => handleSelect(style)}
                 >
                   {style}
                 </button>
               ))}
+            </div>
+          )}
+          {selectedStyle && (
+            <div className="w-[400px] h-[30px] border-b border-gray-70 text-xl text-gray-40 font-medium mt-[20px] pb-[5px]">
+              {styleMap[selectedStyle]}
             </div>
           )}
         </div>
