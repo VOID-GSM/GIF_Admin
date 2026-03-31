@@ -65,7 +65,7 @@ export default function FormCreateView() {
       <div className="flex flex-col gap-[20px]">
         <FormButton
           type="add"
-          onClick={() => setFields((prev) => [...prev, { id: nextId.current++, isDone: true }])}
+          onClick={() => setFields((prev) => [...prev, { id: nextId.current++, isDone: false }])}
         />
         <FormButton type="submit" onClick={handleSubmit} />
         {isModalOpen && (
