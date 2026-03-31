@@ -47,7 +47,7 @@ export default function FormCreateView() {
         <FormInputBox
           value="마감일 설정하기"
           placeholder="날짜를 선택하세요"
-          type="calender"
+          type="calendar"
           onDone={(v) => setIsDeadlineDone(v)}
         />
       </div>
