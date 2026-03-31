@@ -8,7 +8,7 @@ interface ProjectHeaderProps {
 export default function ProjectHeader({ project }: ProjectHeaderProps) {
   return (
     <div className="flex flex-col">
-      <div className=" flex flex-col w-25 h-25 border border-gray-80 rounded-[10px] bg-white overflow-hidden">
+      <div className=" flex flex-col w-[100px] h-[100px] border border-gray-80 rounded-[10px] bg-white overflow-hidden">
         {project.logoUrl ? (
           <Image
             src={project.logoUrl}
