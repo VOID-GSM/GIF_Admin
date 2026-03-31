@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Card from '@/shared/ui/card/Card';
 import Arrow from '@/shared/asset/svg/arrow';
 import Deleted from '@/shared/asset/svg/deleted';
-import { on } from 'events';
 
 const styles = ['캘린더', '줄 글', '파일'];
 const styleMap: Record<string, string> = {
