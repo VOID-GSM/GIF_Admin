@@ -95,8 +95,8 @@ export default function Calendar({ onSelect }: CalendarProps) {
         </div>
 
         <div className="grid grid-cols-7 text-center font-bold text-main text-sm">
-          {DAY_OF_WEEK.map((name, i) => (
-            <span key={i}>{name}</span>
+          {DAY_OF_WEEK.map((name) => (
+            <span key={name}>{name}</span>
           ))}
         </div>
 
