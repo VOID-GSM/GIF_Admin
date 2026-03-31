@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Providers from './providers';
 import './globals.css';
+import HeaderWrapper from '@/widget/header/ui/headerWrapper';
 
 export const metadata: Metadata = {
   title: 'GIF',
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body>
+        <HeaderWrapper />
         <Providers>{children}</Providers>
       </body>
     </html>
