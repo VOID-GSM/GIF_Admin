@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import FormButton from '@/shared/ui/button/formButton';
 import FormInputBox from '@/features/FormCreate/ui/FormInputBox';
 import FormFieldBox from '@/features/FormCreate/ui/FormFieldBox';
-import ConfirmModal from '@/widget/formCreate/ui/ConfirmModal';
+import ConfirmModal from '@/widget/formCreate/ui/confirmModal';
 
 export default function FormCreateView() {
   const router = useRouter();
