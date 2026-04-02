@@ -12,7 +12,7 @@ interface MainViewProps {
   role?: 'ADMIN' | 'MASTER';
 }
 
-export default function MainView({ role }: MainViewProps) {
+export default function MainView({ role = 'MASTER' }: MainViewProps) {
   const [selectedGrade, setSelectedGrade] = useState<Grade>(1);
 
   const filteredProjects = useMemo(() => {
