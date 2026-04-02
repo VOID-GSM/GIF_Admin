@@ -14,36 +14,32 @@ export default function ProjectDetailView() {
   const projectId = Number(params.id);
   const project = MOCK_PROJECT_DETAIL.find((p) => p.id === projectId);
 
-  if (!project) {
-    notFound();
-  }
-
   const [memo, setMemo] = useState('');
   const [isEvaluationOpen, setIsEvaluationOpen] = useState(false);
 
   const isLoaded = useRef(false);
 
   useEffect(() => {
-    const savedMemo = localStorage.getItem(`memo-${project.id}`);
+    if (!project) return;
+
+    const savedMemo = localStorage.getItem(`memo-${project?.id}`);
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (savedMemo) setMemo(savedMemo);
 
-    setTimeout(() => { isLoaded.current = true; }, 0);
-  }, [project.id]);
+    setTimeout(() => {
+      isLoaded.current = true;
+    }, 0);
+  }, [projectId, project]);
 
   useEffect(() => {
-    if (!isLoaded.current) return;
+    if (!isLoaded.current || !project) return;
 
     const timer = setTimeout(() => {
-      localStorage.setItem(`memo-${project.id}`, memo);
+      localStorage.setItem(`memo-${project?.id}`, memo);
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [memo, project.id]);
-
-  const handleMemoChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMemo(e.target.value);
-  };
+  }, [memo, projectId, project]);
 
   useEffect(() => {
     const checkStatus = () => {
@@ -53,13 +49,16 @@ export default function ProjectDetailView() {
     checkStatus();
   }, []);
 
-  const handleAssigning = () => {
-    router.push('/assigning');
+  if (!project) {
+    notFound();
+  }
+
+  const handleMemoChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setMemo(e.target.value);
   };
 
-  const handleExiting = () => {
-    router.back();
-  };
+  const handleAssigning = () => router.push('/assigning');
+  const handleExiting = () => router.back();
 
   return (
     <div className="flex flex-col items-center min-h-[calc(100vh-80px)] pb-[60px] pt-[134px]">
