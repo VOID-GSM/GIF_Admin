@@ -1,4 +1,4 @@
-import ProjectDetailView from '@/view/projectDetail/ui/ProjectDatilView';
+import ProjectDetailView from '@/view/projectDetail/ui/ProjectDetailView';
 
 export default function ProjectDetailPage() {
   return <ProjectDetailView />;
