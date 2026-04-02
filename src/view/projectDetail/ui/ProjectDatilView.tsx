@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter, useParams, notFound } from 'next/navigation';
 import { MOCK_PROJECT_DETAIL } from '@/entities/project/model/mock';
 import ProjectDetailSection from '@/features/projectDetail/ui/ProjectDetailSection';
@@ -21,16 +21,28 @@ export default function ProjectDetailView() {
   const [memo, setMemo] = useState('');
   const [isEvaluationOpen, setIsEvaluationOpen] = useState(false);
 
+  const isLoaded = useRef(false);
+
   useEffect(() => {
     const savedMemo = localStorage.getItem(`memo-${project.id}`);
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (savedMemo) setMemo(savedMemo);
+
+    setTimeout(() => { isLoaded.current = true; }, 0);
   }, [project.id]);
 
+  useEffect(() => {
+    if (!isLoaded.current) return;
+
+    const timer = setTimeout(() => {
+      localStorage.setItem(`memo-${project.id}`, memo);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [memo, project.id]);
+
   const handleMemoChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    const newValue = e.target.value;
-    setMemo(newValue);
-    localStorage.setItem(`memo-${project.id}`, newValue);
+    setMemo(e.target.value);
   };
 
   useEffect(() => {
@@ -38,7 +50,6 @@ export default function ProjectDetailView() {
       const isOpen = new Date() >= new Date(IDEA_FESTIVAL_START);
       setIsEvaluationOpen(isOpen);
     };
-
     checkStatus();
   }, []);
 
