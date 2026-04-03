@@ -5,7 +5,7 @@ interface ProjectHeaderProps {
   project: ProjectDetail;
 }
 
-export default function ProjectHeader({ project }: ProjectHeaderProps) {
+export default function ProjectDetailSection({ project }: ProjectHeaderProps) {
   return (
     <div className="flex flex-col">
       <div className=" flex flex-col w-[100px] h-[100px] border border-gray-80 rounded-[10px] bg-white overflow-hidden">
