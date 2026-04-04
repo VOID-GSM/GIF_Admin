@@ -9,7 +9,7 @@ export default function ImageIcon() {
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="12" cy="14" r="2.75" stroke="var(--color-gray-40)" stroke-width="2.5" />
+        <circle cx="12" cy="14" r="2.75" stroke="var(--color-gray-40)" strokeWidth="2.5" />
       </g>
       <rect
         x="1.5"
@@ -18,7 +18,7 @@ export default function ImageIcon() {
         height="37"
         rx="3.5"
         stroke="var(--color-gray-40)"
-        stroke-width="3"
+        strokeWidth="3"
       />
       <defs>
         <clipPath id="clip0_1649_1491">
