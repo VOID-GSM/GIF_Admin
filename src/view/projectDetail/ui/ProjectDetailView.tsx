@@ -22,9 +22,11 @@ export default function ProjectDetailView() {
   useEffect(() => {
     if (!project) return;
 
-    const savedMemo = localStorage.getItem(`memo-${project?.id}`);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (savedMemo) setMemo(savedMemo);
+    if (typeof window !== 'undefined') {
+      const savedMemo = localStorage.getItem(`memo-${project?.id}`);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (savedMemo) setMemo(savedMemo);
+    }
 
     setTimeout(() => {
       isLoaded.current = true;
@@ -35,7 +37,9 @@ export default function ProjectDetailView() {
     if (!isLoaded.current || !project) return;
 
     const timer = setTimeout(() => {
-      localStorage.setItem(`memo-${project?.id}`, memo);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem(`memo-${project?.id}`, memo);
+      }
     }, 500);
 
     return () => clearTimeout(timer);
@@ -44,9 +48,15 @@ export default function ProjectDetailView() {
   useEffect(() => {
     const checkStatus = () => {
       const isOpen = new Date() >= new Date(IDEA_FESTIVAL_START);
-      setIsEvaluationOpen(isOpen);
+      setIsEvaluationOpen((prev) => (prev !== isOpen ? isOpen : prev));
+
+      if (isOpen && typeof timer !== 'undefined') clearInterval(timer);
     };
+
+    const timer = setInterval(checkStatus, 1000);
     checkStatus();
+    
+    return () => clearInterval(timer);
   }, []);
 
   if (!project) {
@@ -68,12 +78,15 @@ export default function ProjectDetailView() {
         <div className="flex flex-col gap-4">
           {isEvaluationOpen ? (
             <>
-              <textarea
-                className="h-[230px] border border-gray-60 rounded-[10px] p-[15px] focus:outline-none"
-                placeholder="메모 입력하기"
-                value={memo}
-                onChange={handleMemoChange}
-              />
+              <div className='flex flex-col'>
+                <span className='text-main font-bold pl-[15px]'>메모</span>
+                <textarea
+                  className="h-[230px] border border-gray-60 rounded-[10px] p-[15px] focus:outline-none"
+                  placeholder="메모 입력하기"
+                  value={memo}
+                  onChange={handleMemoChange}
+                />
+              </div>
               <Button onClick={handleAssigning}>점수 부여하기</Button>
               <Button onClick={handleExiting} variant="sub">
                 나가기
