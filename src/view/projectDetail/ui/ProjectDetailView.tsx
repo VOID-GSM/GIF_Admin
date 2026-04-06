@@ -47,16 +47,11 @@ export default function ProjectDetailView() {
 
   useEffect(() => {
     const checkStatus = () => {
-      const isOpen = new Date() >= new Date(IDEA_FESTIVAL_START);
-      setIsEvaluationOpen((prev) => (prev !== isOpen ? isOpen : prev));
-
-      if (isOpen && typeof timer !== 'undefined') clearInterval(timer);
+      setIsEvaluationOpen(new Date() >= new Date(IDEA_FESTIVAL_START));
     };
-
-    const timer = setInterval(checkStatus, 1000);
     checkStatus();
-    
-    return () => clearInterval(timer);
+    const interval = setInterval(checkStatus, 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   if (!project) {
@@ -78,8 +73,8 @@ export default function ProjectDetailView() {
         <div className="flex flex-col gap-4">
           {isEvaluationOpen ? (
             <>
-              <div className='flex flex-col'>
-                <span className='text-main font-bold pl-[15px]'>메모</span>
+              <div className="flex flex-col">
+                <span className="text-main font-bold pl-[15px]">메모</span>
                 <textarea
                   className="h-[230px] border border-gray-60 rounded-[10px] p-[15px] focus:outline-none"
                   placeholder="메모 입력하기"
