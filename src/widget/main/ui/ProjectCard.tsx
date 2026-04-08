@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '@/entities/main/model/type';
+import ImageIcon from '@/shared/asset/svg/ImageIcon';
 
 interface ProjectCardProps {
   project: Project;
@@ -13,14 +14,16 @@ export const ProjectCard = ({ project, href }: ProjectCardProps) => {
       <div className="overflow-hidden rounded-[10px] border border-gray-60 bg-white w-[175px]">
         <div className="relative h-[90px]">
           {project.imageUrl ? (
-            <Image src={project.imageUrl} alt={project.title} fill className="object-cover" />
+            <Image src={project.imageUrl} alt={project.projectName} fill className="object-cover" />
           ) : (
-            <div className="w-full h-full" />
+            <div className="w-full h-full flex items-center justify-center bg-gray-100">
+              <ImageIcon />
+            </div>
           )}
         </div>
 
         <div className="flex flex-col gap-2 p-4 bg-main-card">
-          <span className="font-semibold">{project.title}</span>
+          <span className="font-semibold">{project.projectName}</span>
           <span className="text-xs font-medium">{project.members}</span>
         </div>
       </div>
