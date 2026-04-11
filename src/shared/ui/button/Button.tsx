@@ -20,7 +20,7 @@ export default function Button({
   const base = 'rounded-[10px] text-2xl font-semibold';
 
   const variantStyle = disabled
-    ? 'bg-gray-100 text-white'
+    ? 'bg-gray-100 text-white cursor-not-allowed'
     : variant === 'sub'
       ? 'bg-gray-100 cursor-pointer text-white'
       : 'bg-main text-white cursor-pointer';
