@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const headerList = await headers();
-  const role = (headerList.get('x-user-role') as 'ADMIN' | 'MASTER') || 'MASTER';
+  const role = (headerList.get('x-user-role') as 'ADMIN' | 'MASTER') || 'ADMIN';
 
   return (
     <html lang="ko">
       <body>
-        <HeaderWrapper serverRole={role}/>
+        <HeaderWrapper serverRole={role} />
         <Providers>{children}</Providers>
       </body>
     </html>
