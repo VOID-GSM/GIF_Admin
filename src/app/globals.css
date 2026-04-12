@@ -1,7 +1,17 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Cafe24Decobox';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Decobox.woff2')
+    format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-family-sans: Pretendard, sans-serif;
+  --font-family-decobox: 'Cafe24Decobox', sans-serif;
 
   --color-gray-0: #111111;
   --color-gray-10: #1e1e1e;
@@ -42,9 +52,8 @@
     display: none;
   }
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
