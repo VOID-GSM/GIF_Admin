@@ -20,12 +20,19 @@ interface SubmissionsScheduleCardProps {
   schedules: CalendarSchedule[];
 }
 
+const gapDate = (num: number) => String(num).padStart(2, '0');
+
+const formatDate = (date: Date) => {
+  const year = date.getFullYear();
+  const month = gapDate(date.getMonth() + 1);
+  const day = gapDate(date.getDate());
+  return `${year}.${month}.${day}`;
+};
+
 export default function SubmissionsScheduleCard({ schedules }: SubmissionsScheduleCardProps) {
   const today = useMemo(() => new Date(), []);
   const [viewDate, setViewDate] = useState(new Date());
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  const gapDate = (num: number) => String(num).padStart(2, '0');
 
   const days = useMemo(() => {
     const year = viewDate.getFullYear();
@@ -165,7 +172,7 @@ export default function SubmissionsScheduleCard({ schedules }: SubmissionsSchedu
               <div>
                 <p>{s.title}</p>
                 <p className="text-sm text-gray-500">
-                  {s.startDate.toLocaleDateString()} - {s.endDate.toLocaleDateString()}
+                  {formatDate(s.startDate)} ~ {formatDate(s.endDate)}
                 </p>
               </div>
             </div>
